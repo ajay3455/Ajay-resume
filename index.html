@@ -8,12 +8,16 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-    <!-- html2pdf.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- html2canvas Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-    /* [Your existing CSS styles, included in full] */
+    /* CSS Styles */
+
+    /* Color Variables */
     :root {
       --primary-color: #3a86ff;
       --secondary-color: #ff006e;
@@ -25,6 +29,7 @@
       --light-text-color: #8d99ae;
     }
 
+    /* General Styles */
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--background-color);
@@ -41,6 +46,7 @@
       padding: 2rem;
     }
 
+    /* Header Styles */
     header {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
@@ -84,6 +90,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
+    /* Section Styles */
     .section {
       background-color: white;
       border-radius: 12px;
@@ -134,6 +141,7 @@
       width: 100%;
     }
 
+    /* Experience Item Styles */
     .experience-item {
       margin-bottom: 3rem;
       padding-left: 2rem;
@@ -181,6 +189,7 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Skills Styles */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
@@ -211,6 +220,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
+    /* Certifications Styles */
     .certifications {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -261,6 +271,7 @@
       transform: translateY(0);
     }
 
+    /* Timer Styles */
     #regalTimer {
       font-size: 1.3rem;
       font-weight: bold;
@@ -279,6 +290,7 @@
       100% { transform: scale(1); }
     }
 
+    /* Languages Styles */
     .language-item {
       display: flex;
       align-items: center;
@@ -305,6 +317,7 @@
       background-color: var(--accent-color-1);
     }
 
+    /* Responsive Styles */
     @media (max-width: 768px) {
       .container {
         padding: 1rem;
@@ -323,6 +336,7 @@
       }
     }
 
+    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -352,6 +366,7 @@
     .skill:nth-child(3) { animation-delay: 0.2s; }
     .skill:nth-child(4) { animation-delay: 0.3s; }
 
+    /* Particles Background */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -361,7 +376,7 @@
       z-index: -1;
     }
 
-    /* Styles for the Download PDF button */
+    /* Download PDF Button */
     .download-btn {
       position: fixed;
       top: 20px;
@@ -383,7 +398,7 @@
       transform: translateY(-3px);
     }
 
-    /* Styles to adjust during PDF export */
+    /* Styles for PDF Export */
     .pdf-export * {
       animation: none !important;
       transition: none !important;
@@ -397,11 +412,13 @@
     </style>
 </head>
 <body>
+    <!-- Particles.js Background -->
     <div id="particles-js"></div>
 
     <!-- Download PDF Button -->
     <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
 
+    <!-- Header -->
     <header>
         <div class="container">
             <h1>Ajaypreet Singh</h1>
@@ -420,125 +437,325 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="container" id="content">
         <!-- Professional Summary Section -->
         <section class="section" id="summary">
-          <h2>Professional Summary</h2>
-          <p>I am a security professional with 4 years of experience in various roles within the industry. My expertise spans security operations, team leadership, and customer service. I have excelled in positions such as Security Supervisor and Concierge, as well as CAHS Scheduler and Head of Security at Google.</p>
-          <p>I leverage my strong scheduling and interpersonal skills to foster professional relationships and enhance operational efficiency. Additionally, my background as an Early Childhood Educator has equipped me with the ability to create inclusive environments and plan age-appropriate activities, skills that translate well into maintaining safe and welcoming spaces in security settings.</p>
-          <p>As a proactive and vigilant security professional, I am dedicated to upholding the safety and security of all locations under my care. My innovative approach is exemplified by the development and maintenance of a comprehensive app for a security team, which significantly improved communication, organization, and collaboration, providing important resources for team members to use in their daily work.</p>
+            <h2>Professional Summary</h2>
+            <p>I am a security professional with 4 years of experience in various roles within the industry. My expertise spans security operations, team leadership, and customer service. I have excelled in positions such as Security Supervisor and Concierge, as well as CAHS Scheduler and Head of Security at Google.</p>
+            <p>I leverage my strong scheduling and interpersonal skills to foster professional relationships and enhance operational efficiency. Additionally, my background as an Early Childhood Educator has equipped me with the ability to create inclusive environments and plan age-appropriate activities, skills that translate well into maintaining safe and welcoming spaces in security settings.</p>
+            <p>As a proactive and vigilant security professional, I am dedicated to upholding the safety and security of all locations under my care. My innovative approach is exemplified by the development and maintenance of a comprehensive app for a security team, which significantly improved communication, organization, and collaboration, providing important resources for team members to use in their daily work.</p>
         </section>
 
         <!-- Professional Experience Section -->
         <section class="section" id="experience">
-          <h2>Professional Experience</h2>
-          <!-- Security Supervisor at Regal Security Inc. -->
-          <div class="experience-item">
-            <h3>Security Supervisor</h3>
-            <p><strong>Regal Security Inc.</strong> | February 2022 - Present</p>
-            <div id="regalTimer"></div>
-            <ul>
-              <li>Oversee and coordinate the day-to-day activities of all security guards on site</li>
-              <li>Lead guard staff in emergency or volatile situations and provide necessary direction</li>
-              <li>Coordinate with Regal scheduling regarding any scheduling changes or additional guard services required</li>
-              <li>Administer required on-the-job training for all new site employees</li>
-              <li>Perform supplementary training on a frequent basis for security guards</li>
-              <li>Review daily reports and incident reports to ensure compliance with Regal policies on report writing</li>
-              <li>Ensure general administrative duties are completed by all staff</li>
-              <li>Maintain and monitor all reservation books, key logs, and work orders</li>
-              <li>Follow site protocols and procedures at all times and enforce rules where necessary</li>
-              <li>Respond to alarms and resident/guest calls</li>
-              <li>Keep a clear line of communication with Regal Management and Client representatives</li>
-              <li>Ensure all site equipment is in good order and proper supplies on hand</li>
-              <li>Investigate and/or report any performance complaints</li>
-              <li>Monitor access control points and system for any breaches</li>
-              <li>Patrol required areas of the work site</li>
-              <li>Use CCTV equipment responsibly and as per site instructions and code of practice</li>
-            </ul>
-          </div>
-          <!-- Other Experience Items -->
-          <!-- Include other experience items as in your original code -->
-          <!-- ... -->
+            <h2>Professional Experience</h2>
+            <!-- Experience Items -->
+            <!-- Security Supervisor at Regal Security Inc. -->
+            <div class="experience-item">
+                <h3>Security Supervisor</h3>
+                <p><strong>Regal Security Inc.</strong> | February 2022 - Present</p>
+                <div id="regalTimer"></div>
+                <ul>
+                    <li>Oversee and coordinate the day-to-day activities of all security guards on site</li>
+                    <li>Lead guard staff in emergency or volatile situations and provide necessary direction</li>
+                    <li>Coordinate with Regal scheduling regarding any scheduling changes or additional guard services required</li>
+                    <li>Administer required on-the-job training for all new site employees</li>
+                    <li>Perform supplementary training on a frequent basis for security guards</li>
+                    <li>Review daily reports and incident reports to ensure compliance with Regal policies on report writing</li>
+                    <li>Ensure general administrative duties are completed by all staff</li>
+                    <li>Maintain and monitor all reservation books, key logs, and work orders</li>
+                    <li>Follow site protocols and procedures at all times and enforce rules where necessary</li>
+                    <li>Respond to alarms and resident/guest calls</li>
+                    <li>Keep a clear line of communication with Regal Management and Client representatives</li>
+                    <li>Ensure all site equipment is in good order and proper supplies on hand</li>
+                    <li>Investigate and/or report any performance complaints</li>
+                    <li>Monitor access control points and system for any breaches</li>
+                    <li>Patrol required areas of the work site</li>
+                    <li>Use CCTV equipment responsibly and as per site instructions and code of practice</li>
+                </ul>
+            </div>
+            <!-- Other Experience Items -->
+            <!-- CAHS Scheduler -->
+            <div class="experience-item">
+                <h3>CAHS Scheduler</h3>
+                <p><strong>Allied Universal</strong> | January 2022 - February 2022 (2 months)</p>
+                <ul>
+                    <li>Managed 14 Branches to keep all shifts properly staffed</li>
+                    <li>Monitored workflow and schedules to ensure proper functioning</li>
+                    <li>Utilized highly effective scheduling and interpersonal skills to cultivate and build professional relationships with the company's management team</li>
+                    <li>Coordinated schedules, administrative functions, quality assurance, and process improvements to bolster operational output</li>
+                </ul>
+            </div>
+            <!-- Security Guard - Level 3 -->
+            <div class="experience-item">
+                <h3>Security Guard - Level 3</h3>
+                <p><strong>Allied Universal</strong> | November 2021 - January 2022 (3 months)</p>
+                <ul>
+                    <li>Responsible for patrolling the company premises to detect irregular activity and ensure the safety of the property and occupants</li>
+                    <li>Served as a highly visible security presence to deter safety and security infractions</li>
+                    <li>Investigated and took appropriate action on unauthorized access, incidents, accidents, threats, and suspicious activity</li>
+                </ul>
+            </div>
+            <!-- Head of Security at Google -->
+            <div class="experience-item">
+                <h3>Head of Security</h3>
+                <p><strong>Google</strong> | December 2021 - January 2022 (2 months)</p>
+                <ul>
+                    <li>Oversaw the safety and security of the Google office and employees</li>
+                    <li>Worked closely with the Google executive team to ensure all security procedures were up to date and followed</li>
+                    <li>Collaborated with local law enforcement to ensure office compliance with all security regulations</li>
+                    <li>Responsible for coordinating emergency responses and ensuring employee safety</li>
+                </ul>
+            </div>
+            <!-- Early Childhood Educator -->
+            <div class="experience-item">
+                <h3>Early Childhood Educator</h3>
+                <p><strong>Montessori Learning Centre of Pickering</strong> | September 2021 - November 2021 (3 months)</p>
+                <ul>
+                    <li>Provided an inclusive, accepting, creative, and non-biased atmosphere for children</li>
+                    <li>Planned age-appropriate activities for the students</li>
+                    <li>Managed proper routines for the class</li>
+                    <li>Assisted other staff members</li>
+                </ul>
+            </div>
+            <!-- Security Guard - Level 3 at G4S -->
+            <div class="experience-item">
+                <h3>Security Guard - Level 3</h3>
+                <p><strong>G4S</strong> | September 2020 - November 2021 (1 year 3 months)</p>
+                <ul>
+                    <li>Monitored points of access through surveillance</li>
+                    <li>Inspected and adjusted security systems and equipment to ensure optimal operational use</li>
+                    <li>Responded to alarms and emergencies</li>
+                    <li>Delivered detailed daily activity reports accounting for all irregular incidents</li>
+                    <li>Maintained all professional standards by closely adhering to company policies and procedures</li>
+                </ul>
+            </div>
+            <!-- Shipping Specialist at Newegg -->
+            <div class="experience-item">
+                <h3>Shipping Specialist</h3>
+                <p><strong>Newegg</strong> | April 2020 - September 2020 (6 months)</p>
+                <ul>
+                    <li>Assisted with picking and shipping of orders</li>
+                    <li>Achieved all assigned tasks before deadlines</li>
+                    <li>Assisted other teams for proper time management</li>
+                </ul>
+            </div>
         </section>
 
         <!-- Education Section -->
         <section class="section" id="education">
-          <h2>Education</h2>
-          <div class="experience-item">
-            <h3>Northern College of Applied Arts and Technology</h3>
-            <p>College Diploma, Early Childhood Education and Teaching</p>
-            <p>January 2020 - January 2022</p>
-          </div>
-          <div class="experience-item">
-            <h3>Sri Guru Harkrishan Senior Secondary Public School, Mallianwal</h3>
-            <p>High School, Medical Science</p>
-            <p>March 2004 - April 2019</p>
-          </div>
+            <h2>Education</h2>
+            <div class="experience-item">
+                <h3>Northern College of Applied Arts and Technology</h3>
+                <p>College Diploma, Early Childhood Education and Teaching</p>
+                <p>January 2020 - January 2022</p>
+            </div>
+            <div class="experience-item">
+                <h3>Sri Guru Harkrishan Senior Secondary Public School, Mallianwal</h3>
+                <p>High School, Medical Science</p>
+                <p>March 2004 - April 2019</p>
+            </div>
         </section>
 
         <!-- Skills Section -->
         <section class="section" id="skills">
-          <h2>Top Skills</h2>
-          <div class="skills-container">
-            <div class="skill">Physical Security</div>
-            <div class="skill">Security Management</div>
-            <div class="skill">Supervisory Skills</div>
-            <div class="skill">Emergency Response</div>
-            <div class="skill">CCTV Monitoring</div>
-            <div class="skill">Access Control</div>
-            <div class="skill">Incident Reporting</div>
-            <div class="skill">Team Leadership</div>
-            <div class="skill">Customer Service</div>
-            <div class="skill">Scheduling</div>
-            <div class="skill">Training & Development</div>
-            <div class="skill">Early Childhood Development</div>
-          </div>
+            <h2>Top Skills</h2>
+            <div class="skills-container">
+                <div class="skill">Physical Security</div>
+                <div class="skill">Security Management</div>
+                <div class="skill">Supervisory Skills</div>
+                <div class="skill">Emergency Response</div>
+                <div class="skill">CCTV Monitoring</div>
+                <div class="skill">Access Control</div>
+                <div class="skill">Incident Reporting</div>
+                <div class="skill">Team Leadership</div>
+                <div class="skill">Customer Service</div>
+                <div class="skill">Scheduling</div>
+                <div class="skill">Training & Development</div>
+                <div class="skill">Early Childhood Development</div>
+            </div>
         </section>
 
         <!-- Languages Section -->
         <section class="section" id="languages">
-          <h2>Languages</h2>
-          <div class="language-item">
-            <span class="language-name">Punjabi</span>
-            <div class="language-level">
-              <div class="language-proficiency" style="width: 100%;"></div>
+            <h2>Languages</h2>
+            <div class="language-item">
+                <span class="language-name">Punjabi</span>
+                <div class="language-level">
+                    <div class="language-proficiency" style="width: 100%;"></div>
+                </div>
+                <span>Native or Bilingual</span>
             </div>
-            <span>Native or Bilingual</span>
-          </div>
-          <div class="language-item">
-            <span class="language-name">English</span>
-            <div class="language-level">
-              <div class="language-proficiency" style="width: 80%;"></div>
+            <div class="language-item">
+                <span class="language-name">English</span>
+                <div class="language-level">
+                    <div class="language-proficiency" style="width: 80%;"></div>
+                </div>
+                <span>Professional Working</span>
             </div>
-            <span>Professional Working</span>
-          </div>
-          <div class="language-item">
-            <span class="language-name">Hindi</span>
-            <div class="language-level">
-              <div class="language-proficiency" style="width: 100%;"></div>
+            <div class="language-item">
+                <span class="language-name">Hindi</span>
+                <div class="language-level">
+                    <div class="language-proficiency" style="width: 100%;"></div>
+                </div>
+                <span>Native or Bilingual</span>
             </div>
-            <span>Native or Bilingual</span>
-          </div>
         </section>
 
         <!-- Certifications Section -->
         <section class="section" id="certifications">
-          <h2>Licenses & Certifications</h2>
-          <div class="certifications">
-            <!-- Certification Items -->
-            <!-- Include all your certification items as in your original code -->
-            <!-- ... -->
-          </div>
+            <h2>Licenses & Certifications</h2>
+            <div class="certifications">
+                <!-- Certification Items -->
+                <div class="cert-item">
+                    <h4>Condominium Management Limited License</h4>
+                    <p>Condominium Management Regulatory Authority of Ontario</p>
+                    <div class="cert-details">
+                        <p>Issued Jun 2024 · Expires Jun 2025</p>
+                        <p>Credential ID 0064630833-LL</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>First Aid, AED and CPR certificate - LEVEL C</h4>
+                    <p>National CPR Foundation</p>
+                    <div class="cert-details">
+                        <p>Issued Jan 2023 · Expires Jan 2025</p>
+                        <p>Credential ID E7C741</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Worker Health and Safety Awareness</h4>
+                    <p>Labour, Immigration, Training and Skills Development</p>
+                    <div class="cert-details">
+                        <p>Issued Jun 2022</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Human Trafficking Awareness</h4>
+                    <p>Allied Universal</p>
+                    <div class="cert-details">
+                        <p>Issued Apr 2022</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Use of Force</h4>
+                    <p>Allied Universal</p>
+                    <div class="cert-details">
+                        <p>Issued Apr 2022</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>The Ontario Human Rights Code and AODA</h4>
+                    <p>Ontario Human Rights Commission</p>
+                    <div class="cert-details">
+                        <p>Issued Feb 2022</p>
+                        <p>Understanding of human rights and accessibility standards in Ontario</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>CHILD CARE AND EARLY YEARS ACT, 2014 (CCEYA)</h4>
+                    <p>Ontario Government | Gouvernement de l'Ontario</p>
+                    <div class="cert-details">
+                        <p>Issued Jul 2021</p>
+                        <p>Skills: Early Childhood Development</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Emergency Management</h4>
+                    <p>Allied Universal</p>
+                    <div class="cert-details">
+                        <p>Issued Apr 2021</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Individual Security Guard License</h4>
+                    <p>Ontario Government | Gouvernement de l'Ontario</p>
+                    <div class="cert-details">
+                        <p>Issued Aug 2020 · Expires Aug 2026</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Workplace Hazardous Materials Information System (WHMIS)</h4>
+                    <p>G4S</p>
+                    <div class="cert-details">
+                        <p>Issued Jan 2020</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <h4>Standard First Aid, CPR and AED</h4>
+                    <p>SAFETY FIRST SECURITY INC.</p>
+                    <div class="cert-details">
+                        <p>Issued Jan 2020 · Expired Jan 2023</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Include Particles.js -->
+    <!-- Particles.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
+    <!-- JavaScript Code -->
     <script>
     // Particles.js Configuration
-    particlesJS.load('particles-js', 'particles.json', function() {
-        console.log('particles.js loaded');
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 60,
+                "density": {
+                    "enable": true,
+                    "value_area": 1000
+                }
+            },
+            "color": {
+                "value": ["#3a86ff", "#ff006e", "#8338ec", "#fb5607", "#ffbe0b"]
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#fff"
+                }
+            },
+            "opacity": {
+                "value": 0.6,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 0.5,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 4,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 2,
+                    "size_min": 0.2,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": false,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 0.5,
+                "direction": "top",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false
+            }
+        },
+        "retina_detect": true
     });
 
     // Function to update the Regal Timer
@@ -639,22 +856,38 @@
         });
     });
 
-    // Function to download content as PDF using html2pdf.js
+    // Function to download content as PDF
     function downloadPDF() {
         // Remove animations and styles that may affect the PDF rendering
         document.body.classList.add('pdf-export');
 
-        // Options for html2pdf
-        const opt = {
-            margin:       0.5,
-            filename:     'Ajaypreet_Singh_Resume.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
+        // Use html2canvas and jsPDF to generate PDF
+        html2canvas(document.getElementById('content'), {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            logging: true
+        }).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgWidth = 210; // A4 width in mm
+            const pageHeight = 295; // A4 height in mm
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
 
-        // Convert the content to PDF
-        html2pdf().set(opt).from(document.getElementById('content')).save().then(() => {
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft > 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+
+            pdf.save('Ajaypreet_Singh_Resume.pdf');
+
             // Restore the original styles after PDF generation
             document.body.classList.remove('pdf-export');
         });
